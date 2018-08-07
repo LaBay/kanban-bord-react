@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import CreateItem from './components/CreateItem/'
+import CreateItem from './components/CreateItem/CreateItem.js'
 import ShowItem from './components/ShowItem/'
 import {render} from 'react-dom';
 import './index.css';
 import items from './components/itemList';
 
 class App extends Component{
+
 	state = {
 		isOpen: false,
 		list: items
@@ -21,7 +22,7 @@ class App extends Component{
 			<div className="wrapper" >
 				<section>
 					<h2>DO IT</h2>
-					<ShowItem items={this.state.list} status={status[0]} />
+					<ShowItem items={this.state.list} status={status[0]} updateItems={this.updateItems}/>
 					<button className="createItem" onClick={this.handleClick}>{this.state.isOpen ? "Close Form" : "Add an item"}</button>
 					{formBlock}
 				</section>
@@ -46,6 +47,12 @@ class App extends Component{
 			isOpen: !this.state.isOpen
 
 		})
+	}
+
+	updateItems = (items) => {
+	    this.setState({
+	        list: items
+	    })
 	}
 }
 

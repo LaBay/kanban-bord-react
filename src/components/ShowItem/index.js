@@ -4,6 +4,13 @@ import './index.css'
 
 class ShowItem extends Component{
 
+    constructor(){
+        super();
+
+        this.moveToDoing = this.moveToDoing.bind(this);
+        this.findIndex = this.findIndex.bind(this);
+    }
+
 	timeHandle(date){
 		
 			let time = new Date(date);
@@ -36,10 +43,14 @@ class ShowItem extends Component{
 
 	moveToDoing(e){
 		let dataKey = e.target.parentElement.getAttribute("data-key");
-		ItemList[ItemList.findIndex((el, i) => {
-			if(el.date == dataKey) return true
-				else return false
-		})].status = "doing";
+
+		const items = this.props.items;
+		const updateItems = this.props.updateItems;
+
+        let temp = items.slice();
+        temp[this.findIndex(dataKey)].status = "doing";
+		updateItems(temp);
+
 		console.log(ItemList)
 	}
 
@@ -69,6 +80,13 @@ class ShowItem extends Component{
 		})], 1);
 		console.log(ItemList)
 	}
+
+    findIndex(dataKey){
+        return this.props.items.findIndex((el, i) => {
+    		if(el.date == dataKey) return true
+    	    else return false
+    	})
+    }
 
 	render(){
 
