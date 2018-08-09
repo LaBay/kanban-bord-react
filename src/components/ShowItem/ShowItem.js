@@ -99,8 +99,7 @@ class ShowItem extends Component{
 	render(){
 		let self = this;
 		const {items, status} = this.props;
-		console.log(status)
-		let sortItems = items.slice();;
+		const sortItems = items.slice();
 		
 		sortItems.sort((a,b) =>{
 			if(a.priority === "high" && b.priority === "high") return a.date - b.date;
