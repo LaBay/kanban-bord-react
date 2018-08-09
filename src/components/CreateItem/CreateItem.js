@@ -1,8 +1,7 @@
 import React from 'react';
-import ItemList from '../itemList';
 import './index.css';
 
-var Item = {
+let Item = {
 	description: "",
 	priority: "",
 	date: "",
@@ -10,12 +9,18 @@ var Item = {
 }
 
 class CreateItem extends React.Component {
+	constructor(){
+		super();
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
 
 	itemAssignment(){
 		Item.date = Date.now(new Date());
 		Item.status = "do it";
-		// console.log(Item)
-		ItemList.push(Object.assign({}, Item));
+		const items = this.props.items;
+		const updateItems = this.props.updateItems;
+		items.push(Object.assign({}, Item));
+		updateItems(items);
 		for (let i in Item) Item[i] = "";
 	}
 
@@ -31,16 +36,14 @@ class CreateItem extends React.Component {
 		if((Item.description.length > 0) && (Item.priority.length > 0)){
 			this.itemAssignment();
 			event.target.reset();
-
 		}else{alert("Fill all fields")};
 		event.preventDefault();
-
 	}
 
 	render() {
 
 		return(
-			<form className="inputBlock" action="" onSubmit={this.handleSubmit.bind(this)}>
+			<form className="inputBlock" action="" onSubmit={this.handleSubmit}>
 				<textarea  placeholder="Enter a task" onChange={this.handleDescription}/>	
 				<label htmlFor="nothing">Set priority: 
 					

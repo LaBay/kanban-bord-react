@@ -3,8 +3,54 @@ ul{
 }
 
 li{
+	width: 95%;
+	margin: 2.5%;
+	padding: 2.5%;
+	border: 1px dotted gray;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
 
-	width: 90%;
-	padding: 5%;
+p{
+	line-height: 20px;
+}
 
+p>span{
+	height: 20px;
+}
+
+p:hover>.hide{
+	display: none;
+}
+
+p > .show{
+	display: none;
+	font-family: "Times New Roman";
+	font-size: 1em;
+	border: none;
+	margin: 0;
+	padding: 0;
+	-webkit-margin: 0;
+	outline: none;
+	box-sizing: content-box;
+	/*text-align: start;*/
+	margin-left: -3.7px
+}
+
+.show > option{
+	font-family: "Times New Roman";
+	font-size: 1em;
+	border: none;
+	margin: 0;
+	padding: 0;
+	-webkit-margin: 0;
+	outline: none;
+	box-sizing: content-box;
+
+}
+
+
+p:hover>.show{
+	display: inline;
+	
 }

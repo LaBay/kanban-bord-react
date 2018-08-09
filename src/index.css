@@ -3,10 +3,6 @@
 	margin: 0;
 }
 
-body{
-	
-}
-
 h1{
 	text-align: center;
 }
@@ -22,15 +18,13 @@ h1{
 
 .createItem{
 	margin-left: 5%;
-	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 section{
 	width: 25%;
 	border-right: 1px solid gray;
-	height: 100vh;
-	
-
+	min-height: 100vh;
 }
 
 section:last-child{
@@ -38,7 +32,69 @@ section:last-child{
 }
 
 h2{
+	position: sticky;
+	top: 0;
+	overflow: hidden;
 	text-align: center;
 	color: gray;
 	border-bottom: 1px solid gray;
+	background-color: #fff;
+	z-index: 10;
+}
+
+
+.inputBlock{
+	width: 90%;
+	margin: auto;
+	border: 1px dotted gray;
+	margin: 2.5%;
+	padding: 2.5%;
+	border-radius: 5px;
+
+}
+
+.inputBlock>textarea{
+	width: 95%;
+	resize: vertical;
+	padding: 2.5%;
+	background-color: #fff;
+	overflow: auto;
+	border-radius: 5px;
+	outline: none;
+	font-size: 1.17em;
+	font-weight: bold;
+	font-family: "Times New Roman";
+}
+
+.inputBlock>textarea:focus{
+	border-color: lightblue;
+}
+
+.inputBlock input[type=radio]{
+	width: 0;
+	height: 0;
+}
+
+.inputBlock input[type=radio]+label{
+	margin-left: 10px;
+	padding: 2px 5px;
+	opacity: 0.7;
+	z-index: 1;
+}
+
+.inputBlock input[type=radio]:checked+label{
+	box-shadow: 0px 0px 10px black;
+	opacity: 1;
+}
+
+#radio1+label{
+	background-color: green;
+}
+
+#radio2+label{
+	background-color: yellow;
+}
+
+#radio3+label{
+	background-color: red;
 }
