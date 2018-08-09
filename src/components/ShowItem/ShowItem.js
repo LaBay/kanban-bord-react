@@ -98,8 +98,8 @@ class ShowItem extends Component{
 
 	render(){
 		let self = this;
-		const {items} = this.props;
-		const status = this.props.status;
+		const {items, status} = this.props;
+		console.log(status)
 		let sortItems = items.slice();;
 		
 		sortItems.sort((a,b) =>{
